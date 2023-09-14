@@ -42,4 +42,7 @@ public class Jadwal {
 
     @Column(name = "execution_at")
     private Date executionAt;
+
+    @Column(name = "alasan_gagal")
+    private String alasanGagal;
 }
