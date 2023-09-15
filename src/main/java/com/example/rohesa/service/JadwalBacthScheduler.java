@@ -66,7 +66,7 @@ public class JadwalBacthScheduler {
             if (!jadwals1.isEmpty()) {
                 logger.info("Daftar ulang schedule (Jadwal)");
                 jadwals1.stream().forEach(jadwal -> {
-                    String pattern = "yyyy-MM-dd HH:mm";
+                    String pattern = "yyyy-MM-dd HH:mm:ss";
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
                     String execDate = simpleDateFormat.format(jadwal.getExecutionAt());
 
