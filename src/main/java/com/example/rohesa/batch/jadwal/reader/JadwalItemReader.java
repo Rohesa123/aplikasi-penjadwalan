@@ -22,22 +22,26 @@ public class JadwalItemReader extends JdbcCursorItemReader<Jadwal> {
     @Autowired
     JadwalRepository jadwalRepository;
 
-    public JadwalItemReader(@Autowired DataSource primaryDataSource, @Value("#(jobParameters['id'])") Long id) {
-        String sql = "SELECT * FROM jadwal a WHERE a.status = '0' and id = id " + String.valueOf(id);
+    public JadwalItemReader(@Autowired DataSource primaryDataSource, @Value("#{jobParameters['id']}") Long id) {
+        logger.info("Masuk Jadwal Item Reader");
+        String sql = "SELECT * FROM jadwal a WHERE a.status = '2' and a.id = " + String.valueOf(id);
         logger.info(sql);
 
         setDataSource(primaryDataSource);
         setSql(sql);
         setFetchSize(100);
-        setRowMapper(new DisbursementDetailRowMapper());
+        setRowMapper(new JadwalDetailRowMapper());
+        logger.info("Keluar Jadwal Item Reader");
     }
 
-    public class DisbursementDetailRowMapper implements RowMapper<Jadwal> {
+    public class JadwalDetailRowMapper implements RowMapper<Jadwal> {
         @Override
         public Jadwal mapRow(ResultSet rs, int rowNuw) throws SQLException {
+            logger.info("Masuk Jadwal Item Reader Row Mapper");
             Jadwal jadwal = new Jadwal();
             jadwal.setId(rs.getLong("id"));
             jadwal.setReqDescription(rs.getString("req_description"));
+            logger.info("Masuk Jadwal Item Reader Row Mapper");
             return jadwal;
         }
     }

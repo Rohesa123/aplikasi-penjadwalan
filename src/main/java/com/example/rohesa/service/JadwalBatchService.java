@@ -22,7 +22,9 @@ public class JadwalBatchService {
     @Transactional
     public void updateStatus(String uid, String status) {
         logger.info("update status : ID -> " + uid + " STATUS -> " + status);
+        logger.info("Cek Query Listener");
         Optional<Jadwal> jadwalOpt = jadwalRepository.findByUid(uid);
+        logger.info("Selesai Cek Query Listener");
         if (jadwalOpt.isPresent()) {
             Jadwal jadwal = jadwalOpt.get();
             if (!jadwal.getStatus().equals("4")) {
@@ -38,9 +40,9 @@ public class JadwalBatchService {
     }
 
     public Boolean isTrue(String uid) {
-        Jadwal jadwal = jadwalRepository.findByUid(uid).get();
-
-        String cek = jadwal.getReqDescription();
+        Optional<Jadwal> jadwal = jadwalRepository.findByUid(uid);
+        if (jadwal.isEmpty()) return false;
+        String cek = jadwal.get().getReqDescription();
 
         return cek != null || !cek.isBlank();
     }

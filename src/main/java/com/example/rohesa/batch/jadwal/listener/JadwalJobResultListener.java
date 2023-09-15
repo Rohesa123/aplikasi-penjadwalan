@@ -20,7 +20,7 @@ public class JadwalJobResultListener implements JobExecutionListener {
 
     public void beforeJob(JobExecution jobExecution) {
         String uid = jobExecution.getJobParameters().getString("uid");
-        logger.info("Disbursement Batch Started with ID : " + uid);
+        logger.info("Jadwal Batch Started with ID : " + uid);
 
         if (jadwalBatchService.isTrue(uid)) {
             jadwalBatchService.updateStatus(uid, "1");

@@ -21,12 +21,13 @@ public class JadwalItemProcessor implements ItemProcessor<Jadwal, Jadwal> {
 
     @Override
     public Jadwal process(@NonNull Jadwal item) {
+        logger.info("Masuk Jadwal Item Processor");
         Jadwal jadwal = jadwalRepository.findById(item.getId()).get();
         jadwal.setId(item.getId());
         jadwal.setStatus("1");
         jadwal.setDescription(item.getReqDescription());
         jadwal.setReqDescription(null);
-
+        logger.info("Selesai Jadwal Item Processor");
         return jadwal;
     }
 }

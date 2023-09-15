@@ -21,8 +21,10 @@ public class JadwalItemWriter implements ItemWriter<Jadwal> {
     @Override
     public void write(List<? extends Jadwal> list) throws Exception {
         for (Jadwal data : list) {
+            logger.info("Masuk Jadwal Item Writter");
             logger.info("JadwalItemWritter : Writting data : " + data.getId() + " : " + data.getStatus());
             jadwalRepository.save(data);
+            logger.info("Masuk Jadwal Item Writter");
         }
     }
 }

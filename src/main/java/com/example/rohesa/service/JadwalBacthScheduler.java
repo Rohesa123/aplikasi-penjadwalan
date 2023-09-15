@@ -2,10 +2,9 @@ package com.example.rohesa.service;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
-
+import org.springframework.stereotype.Service;
 import com.example.rohesa.model.Jadwal;
 import com.example.rohesa.repository.JadwalRepository;
-
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -13,13 +12,11 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.batch.core.Job;
-import org.springframework.batch.core.JobParameter;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.launch.JobLauncher;
@@ -27,6 +24,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.time.Instant;
 import javax.annotation.PostConstruct;
 
+@Service
 public class JadwalBacthScheduler {
     private static final Logger logger = LogManager.getLogger(JadwalBacthScheduler.class);
 

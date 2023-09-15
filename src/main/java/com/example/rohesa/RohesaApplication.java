@@ -27,7 +27,7 @@ public class RohesaApplication implements ApplicationRunner {
 	public void init() {
 		TimeZone.setDefault(TimeZone.getTimeZone("Asia/Jakarta"));
 		logger.info("Spring boot application running in Asia/Jakarta timezone :" + new Date());
-	}
+	}	
 
 	@Override
 	public void run(ApplicationArguments applicationArguments) throws Exception {
