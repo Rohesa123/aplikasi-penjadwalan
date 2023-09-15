@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import com.example.rohesa.batch.jadwal.listener.JadwalJobResultListener;
+import com.example.rohesa.batch.jadwal.listener.JadwalJobResultListener;
 import com.example.rohesa.batch.jadwal.processor.JadwalItemProcessor;
 import com.example.rohesa.batch.jadwal.reader.JadwalItemReader;
 import com.example.rohesa.batch.jadwal.writer.JadwalItemWriter;

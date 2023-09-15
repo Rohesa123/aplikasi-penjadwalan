@@ -24,7 +24,7 @@ public class JadwalItemReader extends JdbcCursorItemReader<Jadwal> {
 
     public JadwalItemReader(@Autowired DataSource primaryDataSource, @Value("#{jobParameters['id']}") Long id) {
         logger.info("Masuk Jadwal Item Reader");
-        String sql = "SELECT * FROM jadwal a WHERE a.status = '2' and a.id = " + String.valueOf(id);
+        String sql = "SELECT * FROM jadwal a WHERE a.status = '1' and a.id = " + String.valueOf(id);
         logger.info(sql);
 
         setDataSource(primaryDataSource);
